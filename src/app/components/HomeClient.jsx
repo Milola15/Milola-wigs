@@ -7,21 +7,21 @@ import Navbar from './Navbar';
 // Les slides du carrousel — modifie les images selon tes fichiers dans public/images/
 const slides = [
   {
-    image: '/images/lis2.jpg',
+    image: '/images/ond1.jpg',
     tag: 'NOUVELLE COLLECTION 2026',
     titre: 'Révèle ta',
     accent: 'beauté naturelle',
     sous: 'Des perruques haut de gamme pour chaque style et chaque occasion.',
   },
   {
-    image: '/images/ond1.jpg',
+    image: '/images/lis2.jpg',
     tag: 'LACE FRONT PREMIUM',
     titre: 'Le naturel',
     accent: 'réinventé',
     sous: 'Des finitions invisibles pour un rendu 100% authentique.',
   },
   {
-    image: '/images/ond6.jpg',
+    image: '/images/ond5.jpg',
     tag: 'BOB & LISSE',
     titre: 'Élégance',
     accent: 'au quotidien',
@@ -183,7 +183,7 @@ export default function HomeClient({ products }) {
               </p>
               <div className="flex gap-3 flex-wrap">
                 
-                <a  href="#catalogue"
+                <a  href="/#catalogue"
                   className="bg-brun-200 text-brun-900 text-sm font-medium px-6 py-3 rounded-lg hover:bg-brun-50 transition-colors duration-200"
                 >
                   Voir la collection
