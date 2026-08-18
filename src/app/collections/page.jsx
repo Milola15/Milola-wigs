@@ -1,5 +1,6 @@
 import prisma from '@/lib/prisma';
 import CollectionsClient from '@/app/components/CollectionsClient';
+export const dynamic = 'force-dynamic';
 
 export default async function CollectionsPage({ searchParams }) {
   const products = await prisma.product.findMany({

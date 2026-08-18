@@ -9,8 +9,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:D:/Document/e-commerce/mini-boutique/prisma/dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 model Product {
   id          Int      @id @default(autoincrement())
