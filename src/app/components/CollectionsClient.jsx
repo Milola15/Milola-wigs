@@ -15,6 +15,15 @@ const categories = [
 export default function CollectionsClient({ products, categorieInitiale = 'tout' }) {
   const [categorie, setCategorie] = useState(categorieInitiale);
 
+  // Fonction pour corriger les chemins d'images relatifs
+  const formatImagePath = (url) => {
+    if (!url) return 'https://placehold.co/400x400?text=Produit';
+    // Si c'est une URL externe (http) ou si elle commence déjà par /
+    if (url.startsWith('http') || url.startsWith('/')) return url;
+    // Sinon, on ajoute le / au début pour la rendre absolue depuis /public
+    return `/${url}`;
+  };
+
   // Filtre simple basé sur le champ categorie de la BDD
   const produitsFiltres = categorie === 'tout'
     ? products
@@ -85,7 +94,7 @@ export default function CollectionsClient({ products, categorieInitiale = 'tout'
                 >
                   <div className="w-full h-56 overflow-hidden bg-brun-200">
                     <img
-                      src={product.imageUrl || 'https://placehold.co/400x400?text=Produit'}
+                      src={formatImagePath(product.imageUrl)}
                       alt={product.name}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />

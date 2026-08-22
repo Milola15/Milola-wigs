@@ -1,36 +1,21 @@
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '../src/generated/prisma/client.js';
+
 const prisma = new PrismaClient();
 
 async function main() {
+  // Supprime les produits existants pour éviter les doublons
+  await prisma.product.deleteMany();
+
   const products = [
     {
-      name: 'Casque Audio Sans Fil',
-      description: 'Casque bluetooth avec réduction de bruit active, autonomie 30h.',
-      price: 89.99,
-      imageUrl: 'https://placehold.co/400x400?text=Casque',
-      stock: 15,
+      name: 'Perruque lisse avec lace frontale',
+      description: 'Qualité humain longueur 32, Couleur ginger',
+      price: 65000,
+      imageUrl: 'TON_URL_UPLOADTHING',
+      stock: 5,
+      categorie: 'lace',
     },
-    {
-      name: 'Montre Connectée',
-      description: 'Suivi d\'activité, notifications, étanche, écran AMOLED.',
-      price: 129.99,
-      imageUrl: 'https://placehold.co/400x400?text=Montre',
-      stock: 8,
-    },
-    {
-      name: 'Clavier Mécanique RGB',
-      description: 'Switches mécaniques, rétroéclairage RGB personnalisable.',
-      price: 64.99,
-      imageUrl: 'https://placehold.co/400x400?text=Clavier',
-      stock: 20,
-    },
-    {
-      name: 'Sac à Dos Ordinateur',
-      description: 'Compartiment rembourré 15.6", résistant à l\'eau.',
-      price: 39.99,
-      imageUrl: 'https://placehold.co/400x400?text=Sac',
-      stock: 25,
-    },
+    // Ajoute tous tes produits ici
   ];
 
   for (const product of products) {
@@ -41,10 +26,5 @@ async function main() {
 }
 
 main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+  .catch(console.error)
+  .finally(() => prisma.$disconnect());
