@@ -8,6 +8,10 @@ const nextConfig = {
       },
     ],
   },
+  outputFileTracingIncludes: {
+    '/produits/[id]': ['./src/generated/prisma/**/*'],
+    '/collections': ['./src/generated/prisma/**/*'],
+  },
 };
 
 export default nextConfig;
