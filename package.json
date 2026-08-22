@@ -4,16 +4,17 @@
   "private": true,
   "scripts": {
   "dev": "next dev --turbopack",
-  "build": "prisma generate && next build",
+  "build": "prisma generate && prisma migrate deploy && next build",
   "start": "next start",
   "lint": "next lint"
-  },
+},
   "prisma": {
     "seed": "node prisma/seed.js"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
     "@uploadthing/react": "^7.3.3",
+    "dotenv": "^17.4.2",
     "next": "^16.3.1",
     "postcss": "^8.5.26",
     "react": "^19.2.8",
